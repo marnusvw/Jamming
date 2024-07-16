@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
-import './SearchResults.css'
+import "./SearchResults.css";
 import TrackList from "../TrackList/TrackList";
 
 const SearchResults = (props) => {
   return (
     <div className="searchResults">
-      {props.searchResults.length > 0 && <h2>Results</h2>}
+      {props.searchResults.length > 0 && (
+        <div className="results">
+          <h2>Results</h2>
+          <button className="resultsBtn" onClick={props.onClear}>
+            Clear Search
+          </button>
+        </div>
+      )}
       <TrackList tracks={props.searchResults} onAdd={props.onAdd} />
     </div>
   );

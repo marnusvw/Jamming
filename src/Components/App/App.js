@@ -16,6 +16,10 @@ function App() {
     Spotify.getAccessToken();
   });
 
+  const clearSearch = useCallback(() => {
+    setSearchResults([]);
+  }, [setSearchResults])
+
   const handleButtonClick = () => {
     inputRef.current.focus();
   };
@@ -53,14 +57,14 @@ function App() {
       <h1>
         Ja<span>mmm</span>ing
       </h1>
-      <button className="login">Login</button>
+      <button onClick={login} className="login">Login</button>
       </div>
       <SearchBar
         onHandleClick={handleButtonClick}
         onSearch={search}
       />
       <div>
-        <SearchResults searchResults={searchResults} onAdd={addTrack} />
+        <SearchResults onClear={clearSearch} searchResults={searchResults} onAdd={addTrack} />
         <Playlist
           inputRef={inputRef}
           playlistName={playlistName}
