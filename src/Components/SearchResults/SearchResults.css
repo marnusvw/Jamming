@@ -1,10 +1,24 @@
 .searchResults {
     margin-bottom: 2rem;
 }
-div > button {
+.searchResults > button {
     font-size: 1rem;
     background-color: lightgreen;
     border-radius: 10px;
     color: gray;
     padding: 0.5rem
+}
+.results {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.smallHead {
+    color: pink;
+    font-size: 2rem;
+}
+.resultsBtn {
+    margin-left: 44%;
 }
