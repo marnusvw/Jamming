@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./App.css";
 
 import Spotify from "../../util/Spotify";
@@ -10,7 +10,11 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const inputRef = useRef();
 
+  const handleButtonClick = () => {
+      inputRef.current.focus();
+  }
   const search = useCallback(async (term) => {
     const trackArray = await Spotify.search(term);
     setSearchResults(trackArray);
@@ -41,10 +45,12 @@ function App() {
   });
   return (
     <div className="App">
-      <SearchBar onSearch={search} />
+      <h1>Ja<span>mmm</span>ing</h1>
+      <SearchBar  onHandleClick={handleButtonClick} onSearch={search} />
       <div>
         <SearchResults searchResults={searchResults} onAdd={addTrack} />
         <Playlist
+        inputRef={inputRef}
           playlistName={playlistName}
           playlistTracks={playlistTracks}
           onNameChange={updatePlaylistName}

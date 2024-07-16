@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import TrackList from "../TrackList/TrackList";
-
+import './Playlist.css'
 const Playlist = (props) => {
   const handleTextChange = useCallback(
     (e) => {
@@ -9,17 +9,17 @@ const Playlist = (props) => {
     [props.onNameChange]
   );
   const clearFields = () => {
-    document.getElementById('saveList').value = '';
+    document.getElementById('nameList').value = '';
   }
   return (
-    <div>
-      <input id="saveList" className="savePlaylist" defaultValue={"New Playlist"} onChange={handleTextChange}></input>
+    <div >
+      <input ref={props.inputRef} id="nameList" className="namePlaylist" defaultValue={"New Playlist"} onChange={handleTextChange}></input>
+      <button className="savePlaylist" onClick={() => {props.onSave(); clearFields()}}>Save Playlist</button>
       <TrackList
         tracks={props.playlistTracks}
         onRemove={props.onRemove}
         isRemoval={true}
       />
-      <button onClick={() => {props.onSave(); clearFields()}}>Save Playlist</button>
     </div>
   );
 };
