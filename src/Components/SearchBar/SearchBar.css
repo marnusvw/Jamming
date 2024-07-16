@@ -3,14 +3,14 @@
     margin: 1rem;
     padding: 1rem;
     text-align: center;
-    color: gray;
-    background-color: lightgreen;
     border-radius: 15px;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .searchBtn {
-    font-size: 2.2rem;
+    border-radius: 15px;
+    color: gray;
+    font-size: 2rem;
     margin: 1rem;
     padding: 1rem;
 }
