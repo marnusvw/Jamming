@@ -1,0 +1,19 @@
+.trackCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 15rem;
+    align-items: center;
+    color: white;
+}
+
+
+
+.addBtn {
+   border-radius: 10px;
+   margin-left: 1.5rem;
+   font-size: 1.2rem;
+   background-color: cyan;
+   padding:0.2rem 0.5rem;
+
+}
