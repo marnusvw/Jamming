@@ -12,9 +12,13 @@ function App() {
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const inputRef = useRef();
 
+  const login = useCallback(() => {
+    Spotify.getAccessToken();
+  });
+
   const handleButtonClick = () => {
-      inputRef.current.focus();
-  }
+    inputRef.current.focus();
+  };
   const search = useCallback(async (term) => {
     const trackArray = await Spotify.search(term);
     setSearchResults(trackArray);
@@ -26,8 +30,10 @@ function App() {
     setPlaylistTracks((prevTracks) => [...prevTracks, track]);
   }, []);
 
-  const removeTrack = useCallback((track) =>{
-    setPlaylistTracks((prevTracks) => prevTracks.filter((currenTrack) => currenTrack.id !== track.id))
+  const removeTrack = useCallback((track) => {
+    setPlaylistTracks((prevTracks) =>
+      prevTracks.filter((currenTrack) => currenTrack.id !== track.id)
+    );
   }, []);
 
   const updatePlaylistName = useCallback((name) => {
@@ -36,21 +42,27 @@ function App() {
 
   const savePlaylist = useCallback(() => {
     const trackUris = playlistTracks.map((track) => track.uri);
-    Spotify.savePlaylist(playlistName, trackUris  ).then(() => {
-      setPlaylistName('New Playlist');
+    Spotify.savePlaylist(playlistName, trackUris).then(() => {
+      setPlaylistName("New Playlist");
       setPlaylistTracks([]);
-     
-    }, [playlistName, playlistTracks])
-    
+    }, [playlistName, playlistTracks]);
   });
   return (
     <div className="App">
-      <h1>Ja<span>mmm</span>ing</h1>
-      <SearchBar  onHandleClick={handleButtonClick} onSearch={search} />
+      <div className="header">
+      <h1>
+        Ja<span>mmm</span>ing
+      </h1>
+      <button className="login">Login</button>
+      </div>
+      <SearchBar
+        onHandleClick={handleButtonClick}
+        onSearch={search}
+      />
       <div>
         <SearchResults searchResults={searchResults} onAdd={addTrack} />
         <Playlist
-        inputRef={inputRef}
+          inputRef={inputRef}
           playlistName={playlistName}
           playlistTracks={playlistTracks}
           onNameChange={updatePlaylistName}
