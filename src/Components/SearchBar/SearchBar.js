@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from "react";
-
+import './SearchBar.css'
 const SearcBar = (props) => {
     const [term, setTerm] = useState('')
 
@@ -12,9 +12,9 @@ const SearcBar = (props) => {
     }, [props.onSearch, term])
 
     return (
-        <div>
-            <input placeholder="Enter a Song Title" value={term} type="text" onChange={handleTextChange}></input>
-            <button onClick={search}>Search</button>
+        <div className="searchBar">
+            <input className="searchField" placeholder="Enter a Song Title" value={term} type="text" onChange={handleTextChange}></input>
+            <button className="searchBtn" onClick={search}>Search</button>
         </div>
     )
 }
