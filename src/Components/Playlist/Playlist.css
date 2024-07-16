@@ -1,0 +1,17 @@
+.namePlaylist {
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    color: gray;
+    background-color: lightgreen;
+    border-radius: 15px;
+    font-size: 2rem;
+}
+
+.savePlaylist {
+    border-radius: 15px;
+    color: gray;
+    font-size: 2rem;
+    margin: 1rem;
+    padding: 1rem;
+}
