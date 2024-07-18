@@ -13,7 +13,7 @@ const Tracks = (props) => {
     if (props.isRemoval) {
       return (
         <button className="removeBtn" onClick={onRemove}>
-          Delete
+          - 
         </button>
       );
     } else {

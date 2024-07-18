@@ -9,7 +9,7 @@
   margin-right: 2rem;
 }
 
-.addBtn {
+.addBtn, .removeBtn {
   position: absolute;
   right: -2rem;
   border-radius: 10px;

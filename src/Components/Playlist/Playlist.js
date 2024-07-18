@@ -12,14 +12,14 @@ const Playlist = (props) => {
     document.getElementById('nameList').value = '';
   }
   return (
-    <div >
+    <div className="playlist">
       <input ref={props.inputRef} id="nameList" className="namePlaylist" defaultValue={"New Playlist"} onChange={handleTextChange}></input>
-      <button className="savePlaylist" onClick={() => {props.onSave(); clearFields()}}>Save Playlist</button>
       <TrackList
         tracks={props.playlistTracks}
         onRemove={props.onRemove}
         isRemoval={true}
       />
+      <button className="savePlaylistBtn" onClick={() => {props.onSave()}}>Save Playlist</button>
     </div>
   );
 };
