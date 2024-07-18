@@ -8,9 +8,6 @@ const SearchResults = (props) => {
       {props.searchResults.length > 0 && (
         <div className="results">
           <h2>Results</h2>
-          <button className="resultsBtn" onClick={props.onClear}>
-            Clear Search
-          </button>
         </div>
       )}
       <TrackList tracks={props.searchResults} onAdd={props.onAdd} />

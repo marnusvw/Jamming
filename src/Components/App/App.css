@@ -1,12 +1,14 @@
 .App {
-  text-align: center;
-  background-color:lightblue;
+  background-color: lightblue;
   padding-bottom: 2rem;
   min-height: 100vh;
   background-image: url(../../../assets/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-
+}
+.main {
+  display: flex;
+  justify-content: space-around;
 }
 .header {
   position: relative;
@@ -17,7 +19,7 @@
   justify-content: center;
   margin-bottom: 10rem;
   width: 100%;
-  background-color: rgba(33, 7, 66,90%);
+  background-color: rgba(33, 7, 66, 90%);
 }
 
 h1 {
