@@ -59,6 +59,7 @@ function App() {
       </h1>
       <button onClick={login} className="login">Login</button>
       </div>
+
       <SearchBar
         onHandleClick={handleButtonClick}
         onSearch={search}
